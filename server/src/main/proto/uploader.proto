@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package uploader;
+
+option java_multiple_files = true;
+option java_package = "com.songko.grpc";
+
+service Uploader {
+  rpc UploadFiles(stream UploadRequest) returns (UploadResponse) {}
+}
+
+message UploadRequest {
+  string sender = 1;
+  bytes pdf_file = 2;
+}
+
+message UploadResponse {
+  bool success = 1;
+}
+
